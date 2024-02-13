@@ -1,0 +1,99 @@
+package br.com.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import br.com.model.entity.Usuario;
+import br.com.model.response.ResponseRest;
+import br.com.model.response.ResponseRest.messageType;
+import br.com.repository.UsuarioRepository;
+import lombok.AllArgsConstructor;
+import springfox.documentation.annotations.ApiIgnore;
+
+@Service
+@CrossOrigin(maxAge = 3600)
+@AllArgsConstructor
+public class UsuarioService {
+
+	@Autowired
+	UsuarioRepository repository;
+
+	public ResponseEntity<?> salvaRegistro(@Valid Usuario usuario, @ApiIgnore ResponseRest response) {
+		if (validaSeExisteId(usuario.getId())) {
+			response.setMessage("Id já cadastrado.");
+			response.setType(messageType.ATENCAO);
+			return new ResponseEntity<ResponseRest>(response, HttpStatus.BAD_REQUEST);
+
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
+	}
+
+	public ResponseEntity<?> atualizaRegistro(@Valid Usuario usuario, @ApiIgnore ResponseRest response) {
+		if (!validaSeExisteId(usuario.getId()) || usuario.getId() == null) {
+			response.setMessage("Id não existente.");
+			response.setType(messageType.ATENCAO);
+			return new ResponseEntity<ResponseRest>(response, HttpStatus.BAD_REQUEST);
+
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
+	}
+
+	@CrossOrigin(maxAge = 3600)
+	public ResponseEntity<ResponseRest> deleta(@PathVariable Long id, @ApiIgnore ResponseRest response) {
+		if (!validaSeExisteId(id)) {
+			response.setMessage("Id não existente.");
+			response.setType(messageType.ATENCAO);
+			return new ResponseEntity<ResponseRest>(response, HttpStatus.BAD_REQUEST);
+
+		}
+		repository.deleteById(id);
+		response.setMessage("Registro excluído com sucesso.");
+		response.setType(messageType.SUCESSO);
+		return new ResponseEntity<ResponseRest>(response, HttpStatus.OK);
+
+	}
+
+	public ResponseEntity<?> buscaPorID(@PathVariable Long id, @ApiIgnore ResponseRest response) {
+		if (!validaSeExisteId(id)) {
+			response.setMessage("Id não existente.");
+			response.setType(messageType.ATENCAO);
+			return new ResponseEntity<ResponseRest>(response, HttpStatus.BAD_REQUEST);
+		}
+
+		return ResponseEntity.status(HttpStatus.OK).body(repository.findById(id));
+	}
+
+	public ResponseEntity<Usuario> create(Usuario carro) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(carro));
+	}
+
+	public Usuario updatePorId(Long id, Usuario carro) {
+		return repository.save(carro);
+	}
+
+	public List<Usuario> buscaUsuarios() {
+		List<Usuario> findAll = repository.findAll();
+		return findAll;
+	}
+
+	public Boolean validaSeExisteId(Long id) {
+		Optional<Usuario> buscaPorID = repository.findById(id);
+		try {
+			if (buscaPorID.get().getId() != null) {
+				return true;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+		return false;
+	}
+}
