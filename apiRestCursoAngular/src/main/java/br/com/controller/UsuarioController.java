@@ -59,6 +59,7 @@ public class UsuarioController {
 	@ApiOperation(
 			value = "Deleta usuário.", 
 			notes = "Deleta usuário.")
+	@CrossOrigin(maxAge = 3600)
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> deleta(@PathVariable Long id, @ApiIgnore ResponseRest response) {
 		return service.deleta(id, response);
@@ -71,6 +72,15 @@ public class UsuarioController {
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> buscaPorID(@PathVariable Long id, @ApiIgnore ResponseRest response) {
 		return service.buscaPorID(id, response);
+	}
+	
+	@GetMapping("buscaPorNome/{nome}")
+	@ApiOperation(
+			value = "Busca por Nome.", 
+			notes = "Busca registro por nome.")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> buscaPorID(@PathVariable String nome, @ApiIgnore ResponseRest response) {
+		return service.buscaPorNome(nome, response);
 	}
 
 	@GetMapping("buscaUsuarios")

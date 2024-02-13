@@ -71,6 +71,10 @@ public class UsuarioService {
 
 		return ResponseEntity.status(HttpStatus.OK).body(repository.findById(id));
 	}
+	
+	public ResponseEntity<?> buscaPorNome(@PathVariable String nome, @ApiIgnore ResponseRest response) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.findByNomeContainingIgnoreCase(nome));
+	}
 
 	public ResponseEntity<Usuario> create(Usuario carro) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(carro));
