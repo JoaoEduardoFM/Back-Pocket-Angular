@@ -1,5 +1,5 @@
 # Api-Curso-Angular
-![7-most-suitable-angularjs-frameworks](https://github.com/JoaoEduardoFM/Back-End-Curso-Angular/assets/90796699/efdae071-89c1-43e5-a4de-62c94defa8e8)
+![ang](https://github.com/JoaoEduardoFM/Back-Curso-Angular/assets/90796699/c089b6aa-9030-4a84-a518-45611f228557)
 
 > Status: Em desenvolvimento ⚠️
 
