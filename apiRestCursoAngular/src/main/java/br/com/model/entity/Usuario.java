@@ -6,17 +6,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario{
+public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
-	
+	private Long id;
+
 	private String cpf;
-	
+
 	private String nome;
-	
+
 	private String login;
+
+	private String senha;
 
 	public Usuario() {
 		super();
@@ -28,6 +30,7 @@ public class Usuario{
 		this.cpf = cpf;
 		this.nome = nome;
 		this.login = login;
+		this.senha = senha;
 	}
 
 	public Long getId() {
@@ -36,6 +39,14 @@ public class Usuario{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getCpf() {
@@ -85,6 +96,6 @@ public class Usuario{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}	
-	
+	}
+
 }

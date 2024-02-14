@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,32 +25,31 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import springfox.documentation.annotations.ApiIgnore;
 
-@CrossOrigin(maxAge = 3600)
 @RestController
 @AllArgsConstructor
 @RequestMapping("usuario")
-@Api(tags = { "Usuario" })
+@Api(tags = { "Usuario" }, description = " Serviços relacionado aos usuários.")
 public class UsuarioController {
 
 	UsuarioRepository usuarioRpository;
 
 	UsuarioService service;
 
-	@PostMapping
+	@PostMapping("cadastraUsuario")
 	@ApiOperation(
 			value = "Cadastra usuário.", 
 			notes = "Cadastra um usuário.")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> salvaRegistroVeiculo(@RequestBody @Valid Usuario usuario, @ApiIgnore ResponseRest response) {
+	public ResponseEntity<?> salvaRegistro(@RequestBody @Valid Usuario usuario, @ApiIgnore ResponseRest response) {
 		return service.salvaRegistro(usuario, response);
 	}
 
-	@PutMapping("atualizaUsuarioPorId/{id}")
+	@PutMapping("atualizaUsuario/{id}")
 	@ApiOperation(
 			value = "Atualiza usuário.", 
 			notes = "Atualiza de um usuário.")
-	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> atualizaRegistroVeiculo(@RequestBody @Valid Usuario usuario, @ApiIgnore ResponseRest response) {
+	@ResponseStatus(HttpStatus.OK)	
+	public ResponseEntity<?> atualizaRegistro(@RequestBody @Valid Usuario usuario, @ApiIgnore ResponseRest response) {
 		return service.atualizaRegistro(usuario, response);
 	}
 
@@ -59,7 +57,6 @@ public class UsuarioController {
 	@ApiOperation(
 			value = "Deleta usuário.", 
 			notes = "Deleta usuário.")
-	@CrossOrigin(maxAge = 3600)
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> deleta(@PathVariable Long id, @ApiIgnore ResponseRest response) {
 		return service.deleta(id, response);
@@ -78,7 +75,6 @@ public class UsuarioController {
 	@ApiOperation(
 			value = "Busca por Nome.", 
 			notes = "Busca registro por nome.")
-	@CrossOrigin(maxAge = 3600)
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> buscaPorNome(@PathVariable String nome, @ApiIgnore ResponseRest response) {
 		return service.buscaPorNome(nome, response);
@@ -88,7 +84,6 @@ public class UsuarioController {
 	@ApiOperation(
 			value = "Busca por login.", 
 			notes = "Busca registro por login.")
-	@CrossOrigin(maxAge = 3600)
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> buscaPorLogin(@PathVariable String login, @ApiIgnore ResponseRest response) {
 		return service.buscaPorLogin(login, response);

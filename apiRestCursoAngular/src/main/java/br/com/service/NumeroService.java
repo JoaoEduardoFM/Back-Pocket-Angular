@@ -11,26 +11,26 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import br.com.model.entity.Usuario;
+import br.com.model.entity.Numero;
 import br.com.model.response.ResponseRest;
 import br.com.model.response.ResponseRest.messageType;
-import br.com.repository.UsuarioRepository;
+import br.com.repository.NumeroRepository;
 import lombok.AllArgsConstructor;
 import springfox.documentation.annotations.ApiIgnore;
 
 @Service
 @AllArgsConstructor
-public class UsuarioService {
+public class NumeroService {
 
 	@Autowired
-	UsuarioRepository repository;
+	NumeroRepository repository;
 
-	public ResponseEntity<?> salvaRegistro(@Valid Usuario usuario, @ApiIgnore ResponseRest response) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
+	public ResponseEntity<?> salvaRegistro(@Valid Numero numero, @ApiIgnore ResponseRest response) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(numero));
 	}
 
-	public ResponseEntity<?> atualizaRegistro(@Valid Usuario usuario, @ApiIgnore ResponseRest response) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
+	public ResponseEntity<?> atualizaRegistro(@Valid Numero numero, @ApiIgnore ResponseRest response) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(numero));
 	}
 
 	public ResponseEntity<ResponseRest> deleta(@PathVariable Long id, @ApiIgnore ResponseRest response) {
@@ -56,34 +56,22 @@ public class UsuarioService {
 
 		return ResponseEntity.status(HttpStatus.OK).body(repository.findById(id));
 	}
-	
-	public ResponseEntity<?> buscaPorNome(@PathVariable String nome, @ApiIgnore ResponseRest response) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.findByNomeContainingIgnoreCase(nome));
-	}
-	
-	public ResponseEntity<?> buscaPorCpf(@PathVariable String cpf) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.findByCpfContainingIgnoreCase(cpf));
-	}
-	
-	public ResponseEntity<?> buscaPorLogin(@PathVariable String login, @ApiIgnore ResponseRest response) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.findByLoginContainingIgnoreCase(login));
+
+	public ResponseEntity<Numero> create(Numero numero) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(numero));
 	}
 
-	public ResponseEntity<Usuario> create(Usuario usuario) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(usuario));
+	public Numero updatePorId(Long id, Numero numero) {
+		return repository.save(numero);
 	}
 
-	public Usuario updatePorId(Long id, Usuario usuario) {
-		return repository.save(usuario);
-	}
-
-	public List<Usuario> buscaUsuarios() {
-		List<Usuario> findAll = repository.findAll();
+	public List<Numero> buscarRegistros() {
+		List<Numero> findAll = repository.findAll();
 		return findAll;
 	}
 
 	public Boolean validaSeExisteId(Long id) {
-		Optional<Usuario> buscaPorID = repository.findById(id);
+		Optional<Numero> buscaPorID = repository.findById(id);
 		try {
 			if (buscaPorID.get().getId() != null) {
 				return true;
