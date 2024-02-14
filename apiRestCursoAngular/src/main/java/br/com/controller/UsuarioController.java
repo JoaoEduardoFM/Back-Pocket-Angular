@@ -78,9 +78,29 @@ public class UsuarioController {
 	@ApiOperation(
 			value = "Busca por Nome.", 
 			notes = "Busca registro por nome.")
+	@CrossOrigin(maxAge = 3600)
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> buscaPorID(@PathVariable String nome, @ApiIgnore ResponseRest response) {
+	public ResponseEntity<?> buscaPorNome(@PathVariable String nome, @ApiIgnore ResponseRest response) {
 		return service.buscaPorNome(nome, response);
+	}
+	
+	@GetMapping("buscaPorLogin/{login}")
+	@ApiOperation(
+			value = "Busca por login.", 
+			notes = "Busca registro por login.")
+	@CrossOrigin(maxAge = 3600)
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> buscaPorLogin(@PathVariable String login, @ApiIgnore ResponseRest response) {
+		return service.buscaPorLogin(login, response);
+	}
+	
+	@GetMapping("buscaPorCpf/{cpf}")
+	@ApiOperation(
+			value = "Busca por cpf.", 
+			notes = "Busca registro por cpf.")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> buscaPorCpf(@PathVariable String cpf, @ApiIgnore ResponseRest response) {
+		return service.buscaPorCpf(cpf);
 	}
 
 	@GetMapping("buscaUsuarios")
@@ -88,7 +108,7 @@ public class UsuarioController {
 			value = "Busca por usuários.", 
 			notes = "Lista usuário cadastrados.")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Usuario> listaTodosVeiculos() {
+	public List<Usuario> listaTodos() {
 		return service.buscaUsuarios();
 
 	}

@@ -10,4 +10,8 @@ import br.com.model.entity.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
 	public List<Usuario> findByNomeContainingIgnoreCase(@Param("nome") String nome);
-}
+	
+	public List<Usuario> findByLoginContainingIgnoreCase(@Param("login") String login);
+	
+	public List<Usuario> findByCpfContainingIgnoreCase(@Param("cpf") String cpf);
+	}

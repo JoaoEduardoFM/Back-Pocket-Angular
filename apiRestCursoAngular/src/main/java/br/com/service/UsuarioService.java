@@ -72,8 +72,18 @@ public class UsuarioService {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.findById(id));
 	}
 	
+	@CrossOrigin(maxAge = 3600)
 	public ResponseEntity<?> buscaPorNome(@PathVariable String nome, @ApiIgnore ResponseRest response) {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.findByNomeContainingIgnoreCase(nome));
+	}
+	
+	@CrossOrigin(maxAge = 3600)
+	public ResponseEntity<?> buscaPorCpf(@PathVariable String cpf) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.findByCpfContainingIgnoreCase(cpf));
+	}
+	
+	public ResponseEntity<?> buscaPorLogin(@PathVariable String login, @ApiIgnore ResponseRest response) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.findByLoginContainingIgnoreCase(login));
 	}
 
 	public ResponseEntity<Usuario> create(Usuario carro) {
