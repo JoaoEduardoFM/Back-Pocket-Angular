@@ -35,7 +35,7 @@ public class NumeroController {
 
 	NumeroService service;
 
-	@PostMapping("cadastraUsuario")
+	@PostMapping("cadastraNumero")
 	@ApiOperation(
 			value = "Cadastra número.", 
 			notes = "Cadastra número.")
@@ -44,7 +44,7 @@ public class NumeroController {
 		return service.salvaRegistro(numero, response);
 	}
 
-	@PutMapping("atualizaUsuario/{id}")
+	@PutMapping("atualizaNumero/{id}")
 	@ApiOperation(
 			value = "Atualiza número.", 
 			notes = "Atualiza número.")
@@ -53,7 +53,7 @@ public class NumeroController {
 		return service.atualizaRegistro(numero, response);
 	}
 
-	@DeleteMapping("deletaUsuario/{id}")
+	@DeleteMapping("deletaNumero/{id}")
 	@ApiOperation(
 			value = "Deleta número.", 
 			notes = "Deleta número.")
