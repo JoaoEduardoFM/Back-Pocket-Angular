@@ -1,5 +1,5 @@
-# Api-Curso-Angular
-![7-most-suitable-angularjs-frameworks](https://github.com/JoaoEduardoFM/Back-End-Curso-Angular/assets/90796699/efdae071-89c1-43e5-a4de-62c94defa8e8)
+# Api-Back-Curso-Angular
+![ang](https://github.com/JoaoEduardoFM/Back-Curso-Angular/assets/90796699/c089b6aa-9030-4a84-a518-45611f228557)
 
 > Status: Em desenvolvimento ⚠️
 
@@ -10,6 +10,9 @@
 + id 
 + nome
 + cpf
++ login
++ senha
++ numero
 
 ## Technologies Used:
 ![header](https://user-images.githubusercontent.com/90796699/228732700-385f1245-70e2-4afa-8fcb-3838c43cc3d1.png)
