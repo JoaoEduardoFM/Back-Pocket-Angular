@@ -70,7 +70,7 @@ public class NumeroService {
 		return findAll;
 	}
 	
-	public List<Numero> buscarNumerosPorUsuario(Long id) {
+	public List<Numero> buscarNumerosPorUsuarioPk(Long id) {
 		List<Numero> findAll = repository.findByUsuarioPk(id);
 		return findAll;
 	}

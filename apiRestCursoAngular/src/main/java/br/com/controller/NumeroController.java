@@ -1,5 +1,7 @@
 package br.com.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -67,5 +69,14 @@ public class NumeroController {
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> buscaPorID(@PathVariable Long id, @ApiIgnore ResponseRest response) {
 		return service.buscaPorID(id, response);
+	}
+	
+	@GetMapping("buscaPorUsuarioPk/{id}")
+	@ApiOperation(
+			value = "Busca por número do usuário.", 
+			notes = "Busca por número do usuário.")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Numero> buscaPorUsuarioPk(@PathVariable Long id, @ApiIgnore ResponseRest response) {
+		return service.buscarNumerosPorUsuarioPk(id);
 	}
 }
