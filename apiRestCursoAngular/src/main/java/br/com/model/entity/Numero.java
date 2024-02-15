@@ -10,24 +10,26 @@ public class Numero {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idNumero;
+	private Long id;
+
+	private Long usuarioPk;
 
 	private String numero;
 
-	public Long getIdNumero() {
-		return idNumero;
+	public Long getUsuarioPk() {
+		return usuarioPk;
 	}
 
-	public void setIdNumero(Long idNumero) {
-		this.idNumero = idNumero;
+	public void setUsuarioPk(Long usuarioPk) {
+		this.usuarioPk = usuarioPk;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getId() {
-		return idNumero;
-	}
-
-	public void setId(Long idNumero) {
-		this.idNumero = idNumero;
+		return id;
 	}
 
 	public String getNumero() {

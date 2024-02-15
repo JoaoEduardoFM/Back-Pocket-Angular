@@ -69,6 +69,11 @@ public class NumeroService {
 		List<Numero> findAll = repository.findAll();
 		return findAll;
 	}
+	
+	public List<Numero> buscarNumerosPorUsuario(Long id) {
+		List<Numero> findAll = repository.findByUsuarioPk(id);
+		return findAll;
+	}
 
 	public Boolean validaSeExisteId(Long id) {
 		Optional<Numero> buscaPorID = repository.findById(id);
