@@ -6,6 +6,9 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -78,8 +81,14 @@ public class UsuarioService {
 	}
 
 	public List<Usuario> buscaUsuarios() {
-		List<Usuario> findAll = repository.findAll();
-		return findAll;
+		List<Usuario> list = repository.findAll();
+		return list;
+	}
+	
+	public ResponseEntity<Page<Usuario>> buscaUsuariosPage(int pagina) {
+		PageRequest page = PageRequest.of(pagina, 5, Sort.by("nome"));
+		Page<Usuario> list = repository.findAll(page);
+		return new ResponseEntity<Page<Usuario>>(list,HttpStatus.OK);
 	}
 
 	public Boolean validaSeExisteId(Long id) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -105,6 +106,16 @@ public class UsuarioController {
 	@ResponseStatus(HttpStatus.OK)
 	public List<Usuario> listaTodos() {
 		return service.buscaUsuarios();
+
+	}
+	
+	@GetMapping(value = "buscaUsuarios/page/{pagina}",produces = "application/json")
+	@ApiOperation(
+			value = "Busca por usuários.", 
+			notes = "Lista usuário cadastrados.")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<Page<Usuario>> listaTodosPaginado(@PathVariable ("pagina") int pagina) {
+		return service.buscaUsuariosPage(pagina);
 
 	}
 }
