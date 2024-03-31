@@ -118,4 +118,13 @@ public class UsuarioController {
 		return service.buscaUsuariosPage(pagina);
 
 	}
+	
+	@GetMapping("buscaPorNome/page/{nome}")
+	@ApiOperation(
+			value = "Busca por Nome.", 
+			notes = "Busca registro por nome.")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> buscaPorNomePage(@PathVariable String nome, int pagina) {
+		return service.buscaNomePage(nome, pagina);
+	}
 }

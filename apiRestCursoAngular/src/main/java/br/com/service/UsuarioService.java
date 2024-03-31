@@ -90,6 +90,14 @@ public class UsuarioService {
 		Page<Usuario> list = repository.findAll(page);
 		return new ResponseEntity<Page<Usuario>>(list,HttpStatus.OK);
 	}
+	
+	
+	public ResponseEntity<Page<Usuario>> buscaNomePage(String nome ,int pagina) {
+		 PageRequest pageRequest = PageRequest.of(pagina, 5, Sort.by("nome"));
+	        Page<Usuario> list = repository.findAll(pageRequest);
+	        list.forEach(usuario -> usuario.setNome(nome));
+	        return new ResponseEntity<>(list, HttpStatus.OK);
+	    }
 
 	public Boolean validaSeExisteId(Long id) {
 		Optional<Usuario> buscaPorID = repository.findById(id);
