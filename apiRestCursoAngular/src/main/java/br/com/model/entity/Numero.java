@@ -5,7 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Numero {
 
 	@Id
@@ -15,29 +18,5 @@ public class Numero {
 	private Long usuarioPk;
 
 	private String numero;
-
-	public Long getUsuarioPk() {
-		return usuarioPk;
-	}
-
-	public void setUsuarioPk(Long usuarioPk) {
-		this.usuarioPk = usuarioPk;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
 
 }
