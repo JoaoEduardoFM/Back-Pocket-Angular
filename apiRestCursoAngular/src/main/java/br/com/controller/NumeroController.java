@@ -27,8 +27,8 @@ import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("numero")
-@Api(tags = { "numero" }, description = " Serviços relacionado a números para contato.")
+@RequestMapping("Numero")
+@Api(tags = { "Numero" }, description = " Serviços relacionado a números para contato.")
 public class NumeroController {
 
 	NumeroRepository usuarioRpository;
