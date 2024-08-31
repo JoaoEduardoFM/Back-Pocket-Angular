@@ -71,6 +71,10 @@ public class UsuarioService {
 	public ResponseEntity<?> buscaPorLogin(@PathVariable String login, @ApiIgnore ResponseRest response) {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.findByLoginContainingIgnoreCase(login));
 	}
+	
+	public ResponseEntity<?> buscaPorLoginSenha(@PathVariable String login, @PathVariable String senha) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.findByLoginAndSenha(login, senha));
+	}
 
 	public ResponseEntity<Usuario> create(Usuario usuario) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(usuario));

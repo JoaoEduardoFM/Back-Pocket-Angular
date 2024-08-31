@@ -13,6 +13,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 	
 	public List<Usuario> findByLoginContainingIgnoreCase(@Param("login") String login);
 	
+	public List<Usuario> findByLoginAndSenha(@Param("login") String login, @Param("senha") String senha);
+	
 	public List<Usuario> findByCpfContainingIgnoreCase(@Param("cpf") String cpf);
 	
 	@Query("SELECT MAX(u.id) FROM Usuario u")
