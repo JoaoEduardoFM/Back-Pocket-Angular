@@ -51,7 +51,7 @@ public class UsuarioController {
 			notes = "Atualiza de um usuário.")
 	@ResponseStatus(HttpStatus.OK)	
 	public ResponseEntity<?> atualizaRegistro(@RequestBody @Valid Usuario usuario, @ApiIgnore ResponseRest response) {
-		return service.atualizaRegistro(usuario, response);
+		return service.salvaRegistro(usuario, response);
 	}
 
 	@DeleteMapping("deletaUsuario/{id}")
@@ -90,15 +90,6 @@ public class UsuarioController {
 		return service.buscaPorLogin(login, response);
 	}
 	
-	@GetMapping("buscaPorCpf/{cpf}")
-	@ApiOperation(
-			value = "Busca por cpf.", 
-			notes = "Busca registro por cpf.")
-	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> buscaPorCpf(@PathVariable String cpf, @ApiIgnore ResponseRest response) {
-		return service.buscaPorCpf(cpf);
-	}
-
 	@GetMapping("buscaUsuarios")
 	@ApiOperation(
 			value = "Busca por usuários.", 
@@ -126,5 +117,14 @@ public class UsuarioController {
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> buscaPorNomePage(@PathVariable String nome, int pagina) {
 		return service.buscaNomePage(nome, pagina);
+	}
+	
+	@GetMapping("findByLoginAndSenha/{login}/{senha}")
+	@ApiOperation(
+			value = "Busca por login e senha.", 
+			notes = "Busca registro por login e senha.")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Usuario> buscaPorLoginAndSenha(@PathVariable String login, @PathVariable String senha) {
+		return usuarioRpository.findByLoginAndSenha(login, senha);
 	}
 }

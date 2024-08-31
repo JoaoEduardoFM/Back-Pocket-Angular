@@ -32,10 +32,6 @@ public class UsuarioService {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
 	}
 
-	public ResponseEntity<?> atualizaRegistro(@Valid Usuario usuario, @ApiIgnore ResponseRest response) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
-	}
-
 	public ResponseEntity<ResponseRest> deleta(@PathVariable Long id, @ApiIgnore ResponseRest response) {
 		if (!validaSeExisteId(id)) {
 			response.setMessage("Id não existente.");
