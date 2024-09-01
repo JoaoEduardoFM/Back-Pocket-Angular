@@ -50,7 +50,7 @@ public class ProdutoController {
 		return service.deleta(id, response);
 	}
 	
-	@GetMapping("buscaProdutos/{nome}")
+	@GetMapping("buscaNomeProdutos/{nome}")
 	@ApiOperation(
 			value = "Busca por Nome.", 
 			notes = "Busca registro por nome.")
