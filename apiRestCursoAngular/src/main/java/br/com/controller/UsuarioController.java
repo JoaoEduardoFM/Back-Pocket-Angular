@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.model.entity.Usuario;
 import br.com.model.response.ResponseRest;
 import br.com.repository.UsuarioRepository;
+import br.com.service.EmailService;
 import br.com.service.UsuarioService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,9 +34,14 @@ import springfox.documentation.annotations.ApiIgnore;
 @Api(tags = { "Usuario" }, description = " Serviços relacionado aos usuários.")
 public class UsuarioController {
 
+	@Autowired
 	UsuarioRepository usuarioRpository;
 
+	@Autowired
 	UsuarioService service;
+	
+	@Autowired
+	EmailService emailService;
 
 	@PostMapping("cadastraUsuario")
 	@ApiOperation(
@@ -42,6 +49,11 @@ public class UsuarioController {
 			notes = "Cadastra um usuário.")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> salvaRegistro(@RequestBody @Valid Usuario usuario, @ApiIgnore ResponseRest response) {
+		if(usuario.getEmail() != null && !usuario.getEmail().trim().isEmpty()) {
+			emailService.enviarEmailTexto(
+					usuario.getEmail(), 
+					"Angular Pocket", "O seu login é " + usuario.getLogin() + ", sua senha é " + usuario.getSenha());
+		}
 		return service.salvaRegistro(usuario, response);
 	}
 
@@ -51,6 +63,12 @@ public class UsuarioController {
 			notes = "Atualiza de um usuário.")
 	@ResponseStatus(HttpStatus.OK)	
 	public ResponseEntity<?> atualizaRegistro(@RequestBody @Valid Usuario usuario, @ApiIgnore ResponseRest response) {
+		if(usuario.getEmail() != null && !usuario.getEmail().trim().isEmpty()) {
+			emailService.enviarEmailTexto(
+					usuario.getEmail(), 
+					"Angular Pocket", 
+					"O seu login é " + usuario.getLogin() + ", sua senha é " + usuario.getSenha());
+		}
 		return service.salvaRegistro(usuario, response);
 	}
 

@@ -1,16 +1,27 @@
 spring:
   datasource:
-    url: jdbc:h2:file:./data/exemplo # Armazenamento em arquivo no diretório 'data'
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./data/exemplo 
+    username: sa                     
+    password:                       
+    driver-class-name: org.h2.Driver  
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true
     hibernate:
-      ddl-auto: update  # Use 'update' para atualizar o esquema do banco de dados
+      ddl-auto: update              
+    database-platform: org.hibernate.dialect.H2Dialect 
+    defer-datasource-initialization: true  
   h2:
     console:
-      enabled: true
-      path: /h2
-      
+      enabled: true 
+      path: /h2      
+
+  mail:  # Configuração de envio de e-mail
+    host: smtp.gmail.com  
+    port: 587              
+    username: dudu.cespa@gmail.com  
+    password: jomo cyue ldjk iaxe     
+    properties:
+      mail:
+        smtp:
+          auth: true        
+          starttls:
+            enable: true    
