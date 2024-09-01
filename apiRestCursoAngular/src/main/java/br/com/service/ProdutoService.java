@@ -21,6 +21,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @Service
 @AllArgsConstructor
 public class ProdutoService {
+	
 	@Autowired
 	ProdutoRepository repository;
 
@@ -40,6 +41,10 @@ public class ProdutoService {
 		response.setType(messageType.SUCESSO);
 		return new ResponseEntity<ResponseRest>(response, HttpStatus.OK);
 
+	}
+	
+	public ResponseEntity<?> buscaPorNome(@PathVariable String nome, @ApiIgnore ResponseRest response) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.findByNomeContainingIgnoreCase(nome));
 	}
 
 	public ResponseEntity<?> buscaPorID(@PathVariable Long id, @ApiIgnore ResponseRest response) {

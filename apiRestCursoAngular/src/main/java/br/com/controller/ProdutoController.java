@@ -1,5 +1,7 @@
 package br.com.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -29,7 +31,7 @@ public class ProdutoController {
 
 	ProdutoService service;
 
-	@PostMapping("cadastraNumero")
+	@PostMapping("cadastraProduto")
 	@ApiOperation(
 			value = "Cadastra e atualiza produtos.", 
 			notes = "Cadastra e atualiza produtos.")
@@ -38,13 +40,31 @@ public class ProdutoController {
 		return service.salvaRegistro(numero, response);
 	}
 
-	@DeleteMapping("deletaNumero/{id}")
+	@DeleteMapping("deletaProduto/{id}")
 	@ApiOperation(
 			value = "Deleta número.", 
 			notes = "Deleta número.")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> deleta(@PathVariable Long id, @ApiIgnore ResponseRest response) {
 		return service.deleta(id, response);
+	}
+	
+	@GetMapping("buscaProdutos/{nome}")
+	@ApiOperation(
+			value = "Busca por Nome.", 
+			notes = "Busca registro por nome.")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> buscaPorNome(@PathVariable String nome, @ApiIgnore ResponseRest response) {
+		return service.buscaPorNome(nome, response);
+	}
+	
+	@GetMapping("buscaProdutos")
+	@ApiOperation(
+			value = "Busca por número do usuário.", 
+			notes = "Busca por número do usuário.")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Produtos> buscaPorUsuarioPk(@ApiIgnore ResponseRest response) {
+		return service.buscaProdutos();
 	}
 
 	@GetMapping("buscaPorID/{id}")

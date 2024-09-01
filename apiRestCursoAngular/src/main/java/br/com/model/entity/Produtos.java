@@ -21,7 +21,7 @@ public class Produtos {
 	
 	String descricao;
 	
-	String quantidade;
+	Long quantidade;
 	
 	BigDecimal preco;
 	
