@@ -10,8 +10,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.maddytec</groupId>
-	<artifactId>cliente</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>Pocket</artifactId>
+	<version>1.0</version>
 	<name>cliente</name>
 	<description>Projeto estudo Angular</description>
 	<properties>
