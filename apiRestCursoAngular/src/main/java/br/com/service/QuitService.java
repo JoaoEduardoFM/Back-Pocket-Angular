@@ -5,11 +5,16 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
 
 import br.com.model.response.ResponseRest;
 import br.com.model.response.ResponseRest.messageType;
+import br.com.repository.ProdutoRepository;
+import lombok.AllArgsConstructor;
 
+@Service
+@AllArgsConstructor
 public class QuitService {
 
 	@Autowired
