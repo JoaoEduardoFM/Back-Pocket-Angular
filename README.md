@@ -1,5 +1,5 @@
 # Api-Back-Pocket-Angular
-![ang](https://github.com/JoaoEduardoFM/Back-Curso-Angular/assets/90796699/c089b6aa-9030-4a84-a518-45611f228557)
+![angular-removebg-preview](https://github.com/user-attachments/assets/5d65babd-415c-4a7b-823e-46ec8352d432)
 
 > Status: Em desenvolvimento ⚠️
 
