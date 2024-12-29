@@ -12,7 +12,7 @@
 + cpf
 + login
 + senha
-+ numero
++ número
 + envio de e-mail
 + cadastro Produto
 + controle de Estoque
