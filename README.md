@@ -3,7 +3,7 @@
 
 > Status: Em desenvolvimento ⚠️
 
-### É uma aplicação planejada por mim, onde realizo o CRUD de um gerenciador de usuários.
+### É uma aplicação planejada por mim, onde realizo o gerenciamento de estoque, venda e usuários.
 
 ## Alguns campos no modelo principal são:
 
