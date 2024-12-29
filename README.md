@@ -1,4 +1,4 @@
-# Api-Back-Curso-Angular
+# Api-Back-Pocket-Angular
 ![ang](https://github.com/JoaoEduardoFM/Back-Curso-Angular/assets/90796699/c089b6aa-9030-4a84-a518-45611f228557)
 
 > Status: Em desenvolvimento ⚠️
