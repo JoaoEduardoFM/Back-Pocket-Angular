@@ -39,7 +39,3 @@
 </table>
 
 ## Desenvolvimento concluído.
-
-1) Cadastro de usuários.
-2) Edição de registro.
-3) Deletar registro.
