@@ -1,7 +1,7 @@
 # Api-Back-Pocket-Angular
 ![angular-removebg-preview](https://github.com/user-attachments/assets/5d65babd-415c-4a7b-823e-46ec8352d432)
 
-> Status: Em desenvolvimento ⚠️
+> Status: Desenvolvimento concluído ⚠️
 
 ### É uma aplicação planejada por mim, onde realizo o gerenciamento de estoque, venda e usuários.
 
