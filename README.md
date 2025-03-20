@@ -14,8 +14,10 @@
 + senha
 + número
 + envio de e-mail
++ cadastro usuário
 + cadastro Produto
 + controle de Estoque
++ controle de Vendas
 + gerenciamento de usuário
 
 ## Technologies Used:
