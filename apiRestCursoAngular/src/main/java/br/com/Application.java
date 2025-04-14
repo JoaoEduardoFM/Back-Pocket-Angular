@@ -60,43 +60,43 @@ public class Application implements CommandLineRunner {
             log.info("Usuário administrador cadastrado com sucesso!");
             usuarioService.save(user);
 
-            // Cadastro de 5 produtos reais com descrições ajustadas
+            // Cadastro de 5 produtos de panificadora com descrições ajustadas
             Produtos produto1 = new Produtos();
-            produto1.setNome("Apple iPhone 13");
-            produto1.setDescricao("Smartphone com tela Super Retina XDR de 6,1\", chip A15 Bionic, e câmeras avançadas. Desempenho rápido e ótima duração de bateria.");
-            produto1.setPreco(BigDecimal.valueOf(799.99));
-            produto1.setQuantidade(50L);
+            produto1.setNome("Pão Francês");
+            produto1.setDescricao("Pão crocante por fora e macio por dentro, ideal para o café da manhã ou lanche. Feito diariamente com ingredientes frescos.");
+            produto1.setPreco(BigDecimal.valueOf(0.50)); // Preço por unidade
+            produto1.setQuantidade(500L);
             produtoRepository.save(produto1);
 
             Produtos produto2 = new Produtos();
-            produto2.setNome("Samsung Galaxy S21 Ultra");
-            produto2.setDescricao("Smartphone Android com tela Dynamic AMOLED 2X de 6,8\", câmeras de até 108 MP e suporte para S Pen. Alta qualidade e desempenho.");
-            produto2.setPreco(BigDecimal.valueOf(1199.99));
+            produto2.setNome("Bolo de Cenoura com Cobertura de Chocolate");
+            produto2.setDescricao("Bolo caseiro de cenoura fofinho com deliciosa cobertura de chocolate. Perfeito para acompanhar o café.");
+            produto2.setPreco(BigDecimal.valueOf(15.00)); // Preço por unidade
             produto2.setQuantidade(30L);
             produtoRepository.save(produto2);
 
             Produtos produto3 = new Produtos();
-            produto3.setNome("Microsoft Surface Laptop 4");
-            produto3.setDescricao("Notebook fino e leve com tela touchscreen de 13,5\" ou 15\", processadores Intel/AMD, até 32GB de RAM, ideal para produtividade.");
-            produto3.setPreco(BigDecimal.valueOf(1299.99));
-            produto3.setQuantidade(20L);
+            produto3.setNome("Pão de Queijo");
+            produto3.setDescricao("Tradicional pão de queijo mineiro, crocante por fora e cremoso por dentro. Servido quentinho.");
+            produto3.setPreco(BigDecimal.valueOf(1.50)); // Preço por unidade
+            produto3.setQuantidade(200L);
             produtoRepository.save(produto3);
 
             Produtos produto4 = new Produtos();
-            produto4.setNome("Sony WH-1000XM4");
-            produto4.setDescricao("Fone de ouvido com cancelamento de ruído ativo, áudio de alta qualidade, 30h de bateria, e controle por toque. Confortável e imersivo.");
-            produto4.setPreco(BigDecimal.valueOf(349.99));
-            produto4.setQuantidade(40L);
+            produto4.setNome("Torta de Frango");
+            produto4.setDescricao("Torta salgada recheada com frango desfiado, catupiry e temperos selecionados. Ideal para refeições rápidas.");
+            produto4.setPreco(BigDecimal.valueOf(25.00)); // Preço por unidade
+            produto4.setQuantidade(15L);
             produtoRepository.save(produto4);
 
             Produtos produto5 = new Produtos();
-            produto5.setNome("Amazon Echo Dot (4ª Geração)");
-            produto5.setDescricao("Smart speaker com Alexa integrada, som nítido, controle de dispositivos inteligentes e streaming de música. Compacto e funcional.");
-            produto5.setPreco(BigDecimal.valueOf(49.99));
+            produto5.setNome("Croissant de Chocolate");
+            produto5.setDescricao("Croissant folhado recheado com chocolate meio amargo, assado até ficar dourado. Doce e irresistível.");
+            produto5.setPreco(BigDecimal.valueOf(4.00)); // Preço por unidade
             produto5.setQuantidade(100L);
             produtoRepository.save(produto5);
 
-            log.info("5 produtos cadastrados com sucesso!");
+            log.info("5 produtos de panificadora cadastrados com sucesso!");
         }
     }
 
