@@ -1,5 +1,5 @@
 # Api-Back-Pocket-Angular
-![angular-removebg-preview](https://github.com/user-attachments/assets/5d65babd-415c-4a7b-823e-46ec8352d432)
+![Image](https://github.com/user-attachments/assets/d6f3e005-5894-4f96-8e61-03067c356d1d)
 
 > Status: Desenvolvimento concluído ⚠️
 
