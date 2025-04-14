@@ -5,14 +5,7 @@
 
 ### É uma aplicação planejada por mim, onde realizo o gerenciamento de estoque, venda e usuários.
 
-## Alguns campos no modelo principal são:
-
-+ id 
-+ nome
-+ cpf
-+ login
-+ senha
-+ número
+## Alguns dos serviços são:
 + envio de e-mail
 + cadastro usuário
 + cadastro Produto
