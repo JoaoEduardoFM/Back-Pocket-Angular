@@ -3,7 +3,7 @@
 
 > Status: Desenvolvimento concluído ⚠️
 
-### É uma aplicação planejada por mim, onde realizo o gerenciamento de estoque, venda e usuários.
+### É uma aplicação planejada por mim, onde realizo o gerenciamento de estoque, usuários e venda de produtos.
 
 ## Alguns dos serviços são:
 + envio de e-mail
